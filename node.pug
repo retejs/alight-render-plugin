@@ -1,0 +1,35 @@
+.node(:class.selected="isSelected(node)")
+  div.title
+    | {{node.name}}
+
+  // Outputs
+  div(al-repeat='output in node.outputs',style="text-align: right")
+    .output-title
+      | {{output.name}}
+    .socket.output(
+      al-socket="output", 
+      class="{{output.socket.name.toLowerCase().replace(' ','-')}}",
+      title='{{output.socket.name}}\n{{output.socket.hint}}'
+    )
+
+  // Controls
+  div.control(
+    al-repeat='control in node.controls',
+    al-control
+  )
+
+  // Inputs
+  div(al-repeat='input in node.inputs',style="text-align: left")
+    .socket.input(
+      al-socket="input",
+      class="{{input.socket.name.toLowerCase().replace(' ','-')}} {{input.multipleConnections?'multiple':''}}"
+      title='{{input.socket.name}}'
+    )
+    .input-title(
+      al-if='!input.showControl()'
+    )
+      | {{input.name}}
+    .input-control(
+      al-if='input.showControl()'
+      al-control
+    )
