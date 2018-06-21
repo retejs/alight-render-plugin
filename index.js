@@ -2,6 +2,10 @@ import './index.sass';
 import * as alight from 'alight';
 import defaultTemplate from './node.pug';
 
+function toClassName(str){
+    return str.toLowerCase().replace(/ /g,'-')
+}
+
 export function install(editor, params) {
 
     const nodeAl = alight.makeInstance();
@@ -30,7 +34,7 @@ export function install(editor, params) {
         
         el.innerHTML = component.template || params.template || defaultTemplate();
 
-        node._alight = nodeAl.bootstrap(el, { node, isSelected, bindSocket, bindControl });
+        node._alight = nodeAl.bootstrap(el, { node, isSelected, bindSocket, bindControl, toClassName });
     });
 
     editor.on('rendercontrol', ({ el, control }) => {

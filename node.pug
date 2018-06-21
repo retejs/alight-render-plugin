@@ -1,4 +1,4 @@
-.node(:class.selected="isSelected(node)")
+div(class="node {{isSelected(node)?'selected':''}} {{toClassName(node.name)}}")
   div.title
     | {{node.name}}
 
@@ -8,7 +8,7 @@
       | {{output.name}}
     .socket.output(
       al-socket="output", 
-      class="{{output.socket.name.toLowerCase().replace(' ','-')}}",
+      class="{{toClassName(output.socket.name)}}",
       title='{{output.socket.name}}\n{{output.socket.hint}}'
     )
 
@@ -22,7 +22,7 @@
   div(al-repeat='input in node.inputs',style="text-align: left")
     .socket.input(
       al-socket="input",
-      class="{{input.socket.name.toLowerCase().replace(' ','-')}} {{input.multipleConnections?'multiple':''}}"
+      class="{{toClassName(input.socket.name)}} {{input.multipleConnections?'multiple':''}}"
       title='{{input.socket.name}}'
     )
     .input-title(
