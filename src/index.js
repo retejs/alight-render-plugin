@@ -2,8 +2,8 @@ import './index.sass';
 import * as alight from 'alight';
 import defaultTemplate from './node.pug';
 
-function toClassName(str){
-    return str.toLowerCase().replace(/ /g,'-')
+function toClassName(str) {
+    return str.toLowerCase().replace(/ /g, '-')
 }
 
 export function install(editor, params) {

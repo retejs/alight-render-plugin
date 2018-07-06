@@ -1,10 +1,12 @@
 {
   "name": "rete-alight-render-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
-  "main": "build/index.js",
+  "main": "build/alight-render-plugin.min.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rete --build rete.config.js",
+    "build:dev": "rete --build rete.config.js --watch",
+    "prepublishOnly": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -12,8 +14,7 @@
     "alight": "^0.14.1"
   },
   "devDependencies": {
-    "rollup": "^0.59.2",
-    "rollup-plugin-babel": "^3.0.4",
+    "rete-cli": "^0.1.0",
     "rollup-plugin-pug": "^0.1.6",
     "rollup-plugin-sass": "^0.6.1"
   }
