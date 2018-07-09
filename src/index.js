@@ -6,7 +6,7 @@ function toClassName(str) {
     return str.toLowerCase().replace(/ /g, '-')
 }
 
-export function install(editor, params) {
+function install(editor, params) {
 
     const nodeAl = alight.makeInstance();
     const controlAl = alight.makeInstance();
@@ -61,4 +61,8 @@ export function install(editor, params) {
         editor.nodes.map(n => n._alight.scan());
         node._alight.scan();
     });
+}
+
+export default {
+    install
 }
