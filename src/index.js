@@ -34,7 +34,7 @@ function install(editor, params) {
         
         el.innerHTML = component.template || params.template || defaultTemplate();
 
-        node._alight = nodeAl.bootstrap(el, { node, isSelected, bindSocket, bindControl, toClassName });
+        node._alight = nodeAl.bootstrap(el, { node, isSelected, bindSocket, bindControl, toClassName, Array });
     });
 
     editor.on('rendercontrol', ({ el, control }) => {
